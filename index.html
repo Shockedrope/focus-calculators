@@ -6,7 +6,7 @@
     <title>Work Focus Calculators</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,20 +14,60 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --bg-primary: #0a0e1a;
+            --bg-secondary: #141824;
+            --accent-green: #00ff88;
+            --accent-cyan: #00ccff;
+            --text-primary: #e8edf4;
+            --text-secondary: #8892a6;
+            --grid-line: rgba(136, 146, 166, 0.15);
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'JetBrains Mono', monospace;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, #0d1520 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 2rem;
-            color: #ffffff;
+            color: var(--text-primary);
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(0, 255, 136, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 51, 102, 0.03) 0%, transparent 50%);
+            animation: drift 30s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes drift {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-5%, 5%) rotate(5deg); }
         }
 
         .container {
             max-width: 900px;
             width: 100%;
+            background: var(--bg-secondary);
+            border: 1px solid var(--grid-line);
+            border-radius: 16px;
+            padding: 3rem;
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            position: relative;
+            z-index: 1;
         }
 
         header {
@@ -40,23 +80,27 @@
             font-weight: 700;
             margin-bottom: 1rem;
             letter-spacing: -0.02em;
+            background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
             font-weight: 400;
             line-height: 1.6;
         }
 
         .attribution {
             margin-top: 1rem;
-            opacity: 0.8;
-            font-size: 0.95rem;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
         }
 
         .attribution a {
-            color: #ffffff;
+            color: var(--text-primary);
             text-decoration: underline;
             text-underline-offset: 3px;
         }
@@ -69,19 +113,20 @@
         }
 
         .card {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--grid-line);
             border-radius: 16px;
             padding: 2.5rem;
-            color: #1a1a1a;
+            color: var(--text-primary);
             text-decoration: none;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
         }
 
         .card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            background: rgba(255, 255, 255, 1);
+            border-color: var(--accent-green);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
         }
 
         .card-icon {
@@ -93,13 +138,13 @@
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
-            color: #1a1a1a;
+            color: var(--text-primary);
         }
 
         .card-description {
             font-size: 1rem;
             line-height: 1.6;
-            color: #666666;
+            color: var(--text-secondary);
             margin-bottom: 1.5rem;
         }
 
@@ -109,8 +154,8 @@
         }
 
         .card-features li {
-            font-size: 0.9rem;
-            color: #888888;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
             margin-bottom: 0.5rem;
             padding-left: 1.5rem;
             position: relative;
@@ -120,14 +165,14 @@
             content: "→";
             position: absolute;
             left: 0;
-            color: #667eea;
+            color: var(--accent-green);
         }
 
         .card-cta {
             display: inline-block;
             padding: 0.75rem 1.5rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-cyan) 100%);
+            color: var(--bg-primary);
             border-radius: 8px;
             font-weight: 600;
             font-size: 0.95rem;
@@ -141,12 +186,12 @@
 
         footer {
             text-align: center;
-            opacity: 0.8;
-            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
         }
 
         footer a {
-            color: #ffffff;
+            color: var(--text-primary);
             text-decoration: underline;
             text-underline-offset: 3px;
         }
