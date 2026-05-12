@@ -6,9 +6,9 @@ Interactive, browser-based calculators that model how interruptions reduce deep 
 
 This repository contains a small static web app (no backend) with:
 
-- A landing page (`/home/runner/work/focus-calculators/focus-calculators/index.html`)
-- A **Focus Capacity Calculator** (`/home/runner/work/focus-calculators/focus-calculators/focus-capacity-calculator.html`)
-- A **Productivity Perception Calculator** (`/home/runner/work/focus-calculators/focus-calculators/productivity-perception-calculator.html`)
+- A landing page (`index.html`)
+- A **Focus Capacity Calculator** (`focus-capacity-calculator.html`)
+- A **Productivity Perception Calculator** (`productivity-perception-calculator.html`)
 
 The calculators simulate interruption-driven workdays and help explain why frequent context switching makes sustained focus difficult.
 
@@ -53,7 +53,7 @@ Outputs include:
 
 ## How to use
 
-1. Open `/home/runner/work/focus-calculators/focus-calculators/index.html` in a browser.
+1. Open `index.html` in a browser.
 2. Choose a calculator.
 3. Move sliders to reflect your real work environment.
 4. Use the visuals and metrics to evaluate focus impact and adjust expectations or work protections.
@@ -73,4 +73,4 @@ This project is based on:
 
 ## License
 
-See `/home/runner/work/focus-calculators/focus-calculators/LICENSE`.
+See `LICENSE`.
