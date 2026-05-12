@@ -115,6 +115,18 @@
             box-shadow: 0 0 14px rgba(0, 255, 136, 0.15);
         }
 
+        .site-nav .current {
+            display: inline-block;
+            padding: 0.55rem 0.9rem;
+            border: 1px solid var(--accent-green);
+            border-radius: 999px;
+            color: var(--accent-green);
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            background: rgba(0, 255, 136, 0.1);
+        }
+
         .controls-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -422,7 +434,7 @@
         <p class="subtitle">Based on "The Math of Why You Can't Focus at Work"</p>
         <nav class="site-nav" aria-label="Site navigation">
             <a href="index.html">← Home</a>
-            <a href="focus-capacity-calculator.html">Formula Calculator</a>
+            <span class="current" aria-current="page">Formula Calculator</span>
             <a href="productivity-perception-calculator.html">Productivity Perception</a>
         </nav>
 
